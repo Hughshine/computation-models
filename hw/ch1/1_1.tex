@@ -1,0 +1,15 @@
+\problem{证明：对于固定的$k$，一元数论函数$x+k\in \BF$}
+\begin{pf} \rm 
+    借助恒等函数$P_1^1$与后继函数$S$，对任意$k$，可组合构造$f_k(x)=x+k$.
+
+    $$ f(x)=\left\{
+        \begin{aligned}
+        &P_1^1(x)   & k=0 \\
+        &\underbrace{S\circ \dots \circ S}_{k-1次组合} \circ P_1^1(x) \quad & k>0 \\
+        \end{aligned}
+    \right.
+    $$
+
+    由于$f_k(x) = x+k$可由基本函数$P_1^1$与$S$构造，所以$x+k\in\BF$.
+    \qed
+\end{pf}
