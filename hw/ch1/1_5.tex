@@ -1,0 +1,15 @@
+\problem{说明$\pg(x,y)=2^x(2y+1)\dotminus 1$为配对函数}
+\begin{pf} \rm 
+    令$K(z)=\ep_0(z+1), L(z)=\frac{1}{2}\cdot(\frac{z+1}{2^{\ep_0(z+1)}}\dotminus 1)$. 我们注意到，$2^x(2y+1)>0$恒成立，所以计算$\pg$时$\dotminus$可理解为$-$；$2^x$为偶数，$2y+1$为奇数. 
+
+    $K(pg(x,y))$取$2^x(2y+1)$的$2$的指数，即$x$.
+
+    $L(pg(x,y))=\frac{2y}{2}=y$.
+
+    $\pg(K(z), L(z))=2^{\ep_0(z+1)}\cdot
+    (2\cdot \frac{1}{2}\cdot(\frac{z+1}{2^{\ep_0(z+1)}}\dotminus 1)+1)-1=z+1- 1=z$
+    
+    注：$2^\ep_i(n)$必然被$n$整除. 为了使配对函数组满足双射，需要避免计算出现不确定性，如取整. 
+
+    \qed
+\end{pf}

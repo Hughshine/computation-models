@@ -1,0 +1,19 @@
+\problem{证明：$f(x,y)=x \dotminus y\not\in\BF$}
+\begin{pf} \rm 
+    只需说明$\pred(x)=x\dotminus1\not\in\BF$即可，因为$\pred$可由$x\dotminus y$与基本函数构造出.
+
+    假设$\pred\in\BF$，在其最短构造序列上做分解证明. 首先，$\pred\not\in\{S,Z,P\}$，于是可设该构造序列为$f_0,\dots,f_n$. 
+    
+    首先说明该序列中不存在对$P$的使用：若存在，设为\\$f_i(\vec{x})=P_i(g_1(\vec{x}),\dots,g_k(\vec{x}))$，我们可以直接找到一个更简单的构造$f_i(\vec{x})=g_i(\vec{x})$使得序列更短.
+
+    此时思考如何使用$\{S,Z\}$构造$\pred$. 由于两者都是一元函数，其组合可写为$F_0\circ\dots\circ F_m(F_i\in\{S,Z\})$，易知$Z\circ\dots=Z$，根据最短序列的假设，$\pred=S^c\circ Z$或$\pred=S^c$，其中$c$为某个常数.
+
+    \begin{enumerate}
+        \item $S^c\circ Z=c$，为常数，不满足需求.
+        \item $S^c = +_c$，只会增加，不会递减，不满足需求.
+    \end{enumerate}
+
+    综上，$x\dotminus y\not\in\BF$
+
+    \qed
+\end{pf}

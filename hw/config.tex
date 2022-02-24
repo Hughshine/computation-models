@@ -9,8 +9,9 @@
 
 % Enumeration separations
 \usepackage{enumitem}
-\usepackage{amsmath}
+
 \usepackage{amssymb}
+\usepackage{amsmath}
 \setenumerate[1]{itemsep=3pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
 \setitemize[1]{itemsep=3pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
 \setdescription{itemsep=3pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
@@ -34,7 +35,20 @@
 \newcommand{\rs}{\mathrm{rs}}
 \newcommand{\eq}{\mathrm{eq}}
 \newcommand{\ep}{\mathrm{ep}}
-\newcommand{\Comp}{\textsf{Comp}}
+\newcommand{\Comp}{\mathrm{Comp}}
+
+% \newcommand{\dotminus}{\mathbin{\ooalign{\hss\raise1ex\hbox{.}\hss\cr
+%   \mathsurround=0pt$-$}}}
+% \makeatletter
+% \newcommand{\dotminus}{\mathbin{\text{\@dotminus}}}
+% \newcommand{\@dotminus}{%
+%   \ooalign{\hidewidth\raise1ex\hbox{.}\hidewidth\cr$\m@th-$\cr}%
+% }
+% \makeatother
+\DeclareRobustCommand{\dotminus}{\mathbin{\ooalign{\hss\raise1ex\hbox{.}\hss\cr
+\mathsurround=0pt$-$}}}
+\DeclareRobustCommand{\dotdotminus}{\mathbin{\ooalign{\hss\raise1ex\hbox{..}\hss\cr
+\mathsurround=0pt$-$}}}
 
 % Abacus machines
 \newcommand{\AM}{\mathrm{AM}}
@@ -46,6 +60,8 @@
 \newcommand{\A}{\mathbf{A}}
 \newcommand{\cp}{\mathbf{copy}}
 \newcommand{\mv}{\mathbf{move}}
+
+\newcommand{\pred}{\mathrm{pred}}
 
 % Lambda calculus
 \newcommand{\bnf}{\beta\textrm{-nf}}

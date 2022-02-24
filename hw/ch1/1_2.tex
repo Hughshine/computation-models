@@ -1,9 +1,9 @@
-\problem{证明：对于任意$k\in\N^+$，$f:\N^k\rightarrow\N$，若$f\in\BF$，则存在$h$使得$f(\vec{x})<||\vec{x}||+h$}
+\problem{证明：对于任意$k\in\N^+$，$f:\N^k\rightarrow\N$，若$f\in\BF$，则存在$h$使得$f(\vec{x})<||\vec{x}||+h$}\label{1.2}
 \begin{pf} \rm 
     对$f$的构造长度$l$进行归纳，
     当$l=0$时，我们有$f\in\IF$，此时取$h=2$，不等式显然恒成立.
     
-    对于$l=n+1$的情况，我们有归纳假设：存在$h_n$，对于构造长度小于等于$n$的函数，使得$f(\vec{x})<||x||+h_n$成立. 假设构造序列为$f_1,\dots,f_n,f$. 若$f\in\IF$，显然$f(x)<||x||+h_n+1$. 若$f=\Comp_k^m[f_{i_0},\dots,f_{i_k}]$，根据归纳假设有$f(x)<max\{f_{i_j}(x)\}+h_n<||x||+2h_n$，此时我们找到了$h_{n+1}=2h_n$.
+    对于$l=n+1$的情况，我们有归纳假设：存在$h_n$，对于构造长度小于等于$n$的函数，使得$f(\vec{x})<||\vec{x}||+h_n$成立. 假设构造序列为$f_1,\dots,f_n,f$. 若$f\in\IF$，显然$f(\vec{x})<||\vec{x}||+h_n+1$. 若$f=\Comp_k^m[f_{i_0},\dots,f_{i_k}]$，根据归纳假设有$f(\vec{x})<max\{f_{i_j}(\vec{x})\}+h_n<||\vec{x}||+2h_n$，此时我们找到了$h_{n+1}=2h_n$.
 
     \qed
 \end{pf}
