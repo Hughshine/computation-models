@@ -1,14 +1,22 @@
-\problem{设}
+\problem{设$f:\N\rightarrow\N$，证明：$f$可以作为配对函数的左函数当且仅当$\forall i\in\N, |\{z\in\N:f(z)=i\}|=\aleph_0$}
 \begin{pf} \rm 
-    令$K(z)=\ep_0(z+1), L(z)=\frac{1}{2}\cdot(\frac{z+1}{2^{\ep_0(z+1)}}-1)$. 我们注意到，$2^x(2y+1)>0$恒成立，$2^x$为偶数，$2y+1$为奇数. 
+    % 该问题的核心是：相同的二元编码，只能唯一地解码为一对自然数分量，若可以编码任意的自然数对，那么在一个分量确定的前提下，另一个分量任取，一定能得到$\aleph_0$量级的编码.
+设$Z_{x=i}=\{z\in\N:f(z)=i\}$. 若存在配对函数，设为$\pg(x,y)$，右函数设为$g(z)$. 
 
-    $K(pg(x,y))$取$2^x(2y+1)$的$2$的指数，即$x$.
+\paragraph{$\Rightarrow$}\quad\quad 根据可数选择公理，只需证明$\forall i, Z_{x=i}$是无限的. 假设对于某个$i$，$Z_{x=i}$有限，取$Y_{x=i}=\{j|g(z)=j\wedge z\in Z_{x=i}\}$，可知
+$Y_{x=i}$也是有限的. 取任意$y\in \N-Y_{x=i}$，根据配对函数定义，$f(pg(i, y))=i$，这意味着$pg(i,y)=z\in Z_{x=i}$，这意味着$y\in Y_{x=i}$，矛盾.
 
-    $L(pg(x,y))=\frac{2y}{2}=y$.
+\paragraph{$\Leftarrow$}\quad\quad 此时，对于任意的$i$，$Z_{x=i}$可以与$\N$建立一个双射$h_{x=i}:\N\rightarrow Z_{x=i}$，其逆为$h_{x=i}^{-1}$. 此时定义$g$如下：
 
-    $\pg(K(z), L(z))=2^{\ep_0(z+1)}\cdot\frac{z+1}{2^{\ep_0(z+1)}}-1=z+1-1=z$
-    
-    注：$2^\ep_i(n)$必然被$n$整除. 为了使配对函数组满足双射，需要避免计算出现不确定性，如取整. 
+$$ g(z)=\left\{
+    \begin{aligned}
+    &h^{-1}_{x=i}(z)   & z\in Z_{x=i}, \\
+    &0 & \otherwise \\
+    \end{aligned}
+\right.
+$$
+
+令$\pg(x,y)=h_{x=x}(y)$，显然，$\forall x,y.\;f(pg(x,y))=x \wedge g(pg(x,y))=y$，满足配对函数定义.
 
     \qed
 \end{pf}

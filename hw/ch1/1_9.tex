@@ -1,0 +1,19 @@
+\problem{证明：$\min x\le n.[f(x,\vec{y})]=n-\max x\le n.[f(n-x,\vec{y})]. $}
+\begin{pf} \rm 
+    若$f(x,\vec{y})$关于$x$在范围内不存在零点，等式$n=n-0$显然成立. 
+
+    若$f(x,\vec{y})$存在零点，我们设最小零点为$m$，最大零点为$M$. 可知对于任意$a<m$，$f(a,\vec{y})\not=0$. 我们尝试说明$x=n-m$是$f(n-x,\vec{y})$的最大零点.
+
+    \begin{enumerate}
+        \item 由于$f(n-(n-m),\vec{y})=f(m,y)=0$，$x=n-m$是零点.
+        \item 假设$x=(n-m)$不是最大零点，那么$\exists k>0.\;x'=n-m+k\wedge f(n-x',\vec{y})=0$. 化简得$f(n-x',\vec{y})=f(n-n+m-k,\vec{y})=f(m-k,\vec{y})=0$. 
+        \begin{enumerate}
+            \item 若$m=0$，则与$n-m$为不是最大零点矛盾
+            \item 若$m>0$，则$\exists m'=m-k, m'< m \wedge f(m,\vec{y})=0$，与$m$为最小零点矛盾. 
+        \end{enumerate}
+    \end{enumerate}
+
+    综上，得证. 对称形式用相似方法亦可证.
+
+    \qed
+\end{pf}

@@ -1,0 +1,21 @@
+\problem{设
+$$ M(x)=\left\{
+    \begin{aligned}
+    &M(M(x+11))  & x\le 100, \\
+    &x-10 & x > 100. \\
+    \end{aligned}
+\right.$$
+试证明：
+$$M(x)=\left\{
+    \begin{aligned}
+    &91  & x\le 100, \\
+    &x-10 & x > 100. \\
+    \end{aligned}
+\right.
+$$
+}
+\begin{pf} \rm 分类情况讨论，首先可知$M(101)=91$. 
+\paragraph{$90 \le x\le 100$} \quad\quad $M(x)=M(x+1)=\dots=M(101)=91$.
+\paragraph{$0 \le x\le 90$} \quad\quad $\exists k,n.\;91\le x+11k\le 101 \wedge M(x)=M^n\circ M(x+11k)=M^n(91)=91$（注：易证$\forall n.\;M^n(91)=91.$）.
+    \qed
+\end{pf}
