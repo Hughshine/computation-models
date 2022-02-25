@@ -1,0 +1,23 @@
+\problem{证明：$\EF$对有界max-算子封闭}
+\begin{pf} \rm 
+
+$$
+\sum_{i=0}^{n}[N(\prod_{j=0}^i[N^2(f(n-j,\vec{y}))])]
+=\left\{
+\begin{aligned}
+    &\max x\le n.[f(x,\vec{y})]+1 & \exists x.\;f(x,\vec{y})=0, \\
+    &0 & \otherwise \\
+\end{aligned}
+\right.
+$$
+
+所以，
+
+$$
+\max x\le n.[f(x,\vec{y})] = \sum_{i=0}^{n}[N(\prod_{j=0}^i[N^2(f(n-j,\vec{y}))])] \dotminus 1
+$$
+
+于是对于任意$f\in\EF$，$\max x\le n.[f(x,\vec{y})]\in\EF$，所以$\EF$对该算子封闭.
+
+    \qed
+\end{pf}

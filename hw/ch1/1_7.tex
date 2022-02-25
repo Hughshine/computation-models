@@ -1,5 +1,47 @@
-\problem{证明：TODO}
-\begin{pf} \rm 
+\problem{证明：所有的初等函数，都可以由本原函数与复合和算子$\displaystyle \prod^m_{i=n}[\cdot]$生成，
+其中，
+$$
+\prod^m_{i=n}[f(i)]=\left\{ 
+\begin{aligned}
+    &f(n)\cdot f(n+1)\cdot\dots\cdot f(m)   & m\ge n, \\
+    &1 & m<n \\
+\end{aligned}
+\right.
+$$
+}
+\begin{pf} \rm 乘法不能直接退化为加法. 我们尝试放大$\displaystyle \prod^m_{i=n}[\cdot]$的分支计算能力，构造以下函数. 其中，$0$可理解为布尔运算的$\true$，$1$理解为$\false$，$N$可以理解为$\neg$.
+
+$$
+\begin{aligned}
+\pow(x,k)&=\prod^{k}_{i=1}x\\
+N(x)&=\prod_{i=1}^x Z(i)\\
+\leqt(x,y)&=\prod^{y}_{i=x}Z(i)\\
+\geqt(x,y)&=\prod^{x}_{i=y}Z(i)\\
+\andt(x,y)&=\pow(x, N(y))\quad(x,y\in\{0,1\})\\
+\eq(x,y)&=\andt(\leqt(x,y), \geqt(x,y))\\
+\end{aligned}
+$$
+
+利用$\eq$可以构造求解某范围内函数所有零点的积的函数$h$（若没有零点，返回$1$）. 若我们准确知道函数$f$具有唯一零点，那么$h$便可以准确求得该零点.
+
+$$
+h(n)[f(x)] = \prod^{n}_{i=0}i^{N(\eq(f(i), 0))}
+$$
+
+令$f(i)=2^{i}-n$，取$\log(x)=\prod^{n}_{i=0}i^{N(\eq(2^i-n, 0))}$，由于$\log(x)$若存在解，该解一定在$[0,x]$间，所以该定义可以准确求解$2^k$得对数. 现在可利用该函数将乘法退化为加法.
+
+$$
+\sum_{i=n}^m f(i,\vec{x}) = \log(\prod_{i=n}^m 2^{f(i,\vec{x})})
+$$
+
+于是可以构造其他基本初等函数（注意到$\displaystyle\sum_{i=m}^n[\cdot]=0\ \textit{if}\ m>n$）：
+$$
+\begin{aligned}
+    x \times y &= \sum_{i=1}^x y \\
+    x + y &= \log(2^x\times 2^y) \\
+    x\dotdotminus y &= (\sum_{i=x+1}^y 1 + \sum_{i=y+1}^x 1)\\
+\end{aligned}
+$$
 
     \qed
 \end{pf}
