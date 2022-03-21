@@ -1,0 +1,26 @@
+\problem{证明$f\in\PRF$，$f$定义为
+$$
+\begin{aligned}
+    f(0)&=1 \\
+    f(1)&=4 \\
+    f(2)&=6 \\
+    f(x+3)&=f(x)+(f(x+1))^2+(f(x+2))^3
+\end{aligned}.
+$$
+}
+\begin{pf} \rm 
+
+与\ref{1.13}类似，如下定义$F$：
+
+$$
+\begin{aligned}
+    F(0)&=\langle 1,4,6\rangle \\
+    F(x+1)&=\langle \ep_1(F(x)),\ep_2(F(x)), 
+    \ep_0(F(x)) + \ep_1^2(F(x)) + \ep_2^3(F(x)) \rangle\\
+\end{aligned}.
+$$
+
+于是$f(x)=\ep_0(F(x))$. 
+
+\qed
+\end{pf}
