@@ -1,8 +1,20 @@
 \problem{
-    Ack.
+    证明 $\Ack(4, n)\in\PRF-\RF$.
 }
 \begin{pf} \rm 
 
+$f(n) = \Ack(4, n)$，我们可以为$f$写递归式：
+
+$$
+\begin{aligned}
+& f(0) = \Ack(4, 0) = 13\\
+& f(n+1) = \Ack(4, n+1) = \Ack(3, f(n)) = 2^{f(n)+3}\dotminus 3
+\end{aligned}
+$$
+
+所以 $f\in\PRF$. 
+
+假设$f\in\EF$，则存在$k$使得 $f(n)< G(k, n)$. 但$f(n)=\underbrace{2^{.^{.^{.^{2}}}}}_{n+3}-3$，增长率显然$f$一定比控制函数更快，进而$f\not\in\EF$.
 
 
 \qed

@@ -1,7 +1,15 @@
 \problem{若$f,g\in\N\rightarrow\N$只在有限作用域的函数值不同，\\ 证明$f\in\GRF\iff g\in\GRF$.}
 \begin{pf} \rm 
 
+设这个作用域为$S=\{s_0, s_1,\dots, s_k\}$，根据题意，有$\forall x\in\N- S,\;f(x)=g(x)$. 
 
+此时可基于$f$在$\GRF$构造$G=g$，它在$x\in S$时取$G(x) = g(x)$，在$x\in\N-S$时取$G(x) = f(x)$. 
+
+$$
+G(x) = \sum^k_{i=0}g(s_i)\cdot N(\eq(s_i, x)) + N\left(\sum_{i=0}^{k} N \left(\eq(s_i, x)\right)\right)f(x).
+$$
+
+对于前半表达式，由于$S$有限，它属于$\GRF$. 后者保持$f\in\GRF$. 所以$F\in\GRF$. 对称证明类似.
 
 \qed
 \end{pf}

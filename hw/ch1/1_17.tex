@@ -7,7 +7,16 @@ f(x,y+1)&=f(f(\dots f(f(x,y), y-1), \dots),0)
 $$.}
 \begin{pf} \rm 
 
+易见，$f(x, y) = g^{2^{(y\dotminus 1)}}$. 此时可以构造原始递归式计算$g^n(x)$. 
 
+$$
+\begin{aligned}
+G(x,0)&=g(0)\\
+G(x,y+1)&=g(G(x, y))
+\end{aligned}
+$$
+
+显然$f(x, y)\in\PRF$.
 
 \qed
 \end{pf}
