@@ -1,0 +1,10 @@
+\problem{证明括号引理：对于任何$M\in\Lambda$，$M$的左右括号个数相同.}
+\begin{pf} \rm 
+    采用结构归纳：
+    \begin{enumerate}
+        \item 对于$x\in\nabla$，显然左右括号数相同.
+        \item 对于$(\Lambda_1\Lambda_2)$，显然新增左右括号数相同，根据归纳假设，$\Lambda_1$与$\Lambda_2$左右括号数相同，所以该情况满足.
+        \item 对于$(\lambda\nabla\Lambda)$，道理相同.
+    \end{enumerate}
+    \qed
+\end{pf}

@@ -1,0 +1,12 @@
+\problem{设$F\in\Lambda$呈形$\lambda x.M$，证明：
+    (1) $\lambda z.Fz =_\beta F$;
+    (2) $\lambda z.yz\not=_\beta y.$
+}
+\begin{pf} \rm 
+
+    \begin{enumerate}
+        \item $\lambda z.(\lambda x.M)z =_\beta \lambda z.M[x:=z]=_\alpha \lambda x.M$
+        \item 显然$\lambda z.yz\not\equiv y$, 根据合流性，$\lambda z. yz\not=_\beta y$
+    \end{enumerate}
+    \qed
+\end{pf}

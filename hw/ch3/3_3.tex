@@ -1,0 +1,6 @@
+\problem{证明：$(\lambda x.xxx)(\lambda x.xxx)$没有$\beta$-nf.}
+\begin{pf} \rm 
+    对于$n>1$，易证$(\lambda x.xxx)^n\rightarrow_\beta(\lambda x.xxx)^{n+1}$.
+    $(\lambda x.xxx)^{n+1}$永远含有一个可规约子项，最左侧的$(\lambda x.xxx)^2$. 所以$(\lambda x.xxx)^2$没有$\beta$-nf.
+    \qed
+\end{pf}
