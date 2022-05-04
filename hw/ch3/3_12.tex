@@ -1,0 +1,18 @@
+\problem{证明若$M=_\beta N$，则存在$T$使$M\twoheadrightarrow_\beta T$且$N\twoheadrightarrow_\beta T$.
+}
+\begin{pf} \rm 已知
+$$
+(M, N) \in \bigcup_{k=0} (\rightarrow_\beta\cup \leftarrow_\beta)^k.
+$$
+
+我们对$k$做归纳，$k=0$时（$M\equiv N$）命题显然成立.
+
+$k=n+1$时，我们有$P$满足$(P, N)\in(\rightarrow_\beta\cup \leftarrow_\beta)^{n}$，$M\rightarrow_\beta P$或$ M\leftarrow_\beta P$. 根据归纳假设，存在$T_0$使得$P\twoheadrightarrow_\beta T_0\wedge N\twoheadrightarrow_\beta T_0$.
+\begin{enumerate}
+    \item $M\rightarrow_\beta P$.  根据传递性，$T_0$也可作为$M$与$N$的$\beta$-规约汇点.
+    \item $M\leftarrow_\beta P$. 根据合流性，$P$作为源点，$M, T_0$作为分支点，可以找到$T_1$满足$M\twoheadrightarrow_\beta T_1\wedge T_0\twoheadrightarrow_\beta T_1$. 根据传递性，$T_1$可以作为$M$与$N$的$\beta$-规约汇点.
+\end{enumerate}
+
+
+    \qed 
+\end{pf}

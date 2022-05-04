@@ -1,0 +1,10 @@
+\problem{证明：对任何$P,Q$，若$P\twoheadrightarrow_\beta Q$，则存在$n\geqslant 0$以及$P_0, \dots, P_n\in\Lambda$，满足(1) $P\equiv P_0;$ (2) $Q\equiv P_n;$ (3) 对于任何$i<n$，$P_i\rightarrow_\beta P_{i+1}$. 
+} \label{3.7}
+\begin{pf} \rm 
+    对$\twoheadrightarrow_\beta$做结构归纳：
+    \begin{enumerate}
+        \item 若$P\equiv Q$，显然具有单步规约序列（序列长度为$1$，$n=0$）.
+        \item 若$P\twoheadrightarrow_\beta R \wedge R\twoheadrightarrow_\beta Q$，根据归纳假设，$P\twoheadrightarrow_\beta R$具有$n=k_1$的单步规约序列，$R\twoheadrightarrow_\beta Q$具有$n=k_2$的单步规约序列. 将两个序列合并，得到$n=k_1+k_2-1$的单步规约序列.
+    \end{enumerate}
+    \qed
+\end{pf}

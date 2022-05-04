@@ -1,0 +1,29 @@
+\problem{
+设$f,g:\N\rightarrow\N, f=\mathrm{Itw}[g]$，即
+$$
+\begin{aligned}
+    f(0) &= 0, \\
+    f(n+1) &= g(f(n)),        
+\end{aligned}
+$$
+且$G\in\Lambda^\circ$ $\lambda$-定义了函数$g$. 试求$F\in\Lambda^\circ$使得$F$ $\lambda$-定义函数$f$.
+}
+\begin{pf} \rm 需要$F$满足：
+$$
+\begin{aligned}
+    F \lceil 0 \rceil &= \lceil 0 \rceil, \\
+    F \lceil n+1 \rceil &= G (F \lceil n \rceil).        
+\end{aligned}
+$$
+等价于不动点方程：
+$$
+\begin{aligned}
+F &= \lambda n. D\;n\;\lceil 0 \rceil\;(G (F (\pred\;n))) \\    
+&= (\lambda z n. D\;n\;\lceil 0 \rceil\;(G (z (\pred\;n)))) F
+\end{aligned}
+$$
+
+根据不动点定理，可取$F\equiv \Theta (\lambda z n. D\;n\;\lceil 0 \rceil\;(G (z (\pred\;n))))$.
+
+    \qed 
+\end{pf}

@@ -1,0 +1,32 @@
+\problem{证明定理3.12：对于任意$M, N\in\Lambda$，
+$$
+M=_\beta N\Leftrightarrow \lambda\beta\vdash M=N
+$$
+} \label{3.10}
+\begin{pf} \rm \;  
+
+\paragraph{$\Rightarrow$}\quad\quad 已知$M=_\beta N$，证$\lambda\beta\vdash M=N$. 
+
+\begin{enumerate}
+    \item 对于$M\twoheadrightarrow_\beta N$条件：
+    \begin{enumerate}
+        \item $M\rightarrow_\beta N$ 对应于 规则$\beta$.
+        \item 自反性对应于公理$\rho$.
+        \item 传递性对应于规则$\tau$.
+    \end{enumerate}
+    \item 对称性对应于规则$\sigma$.
+    \item 合拍性对应于规则$\mu, \upsilon,\xi$.
+\end{enumerate}
+
+\paragraph{$\Leftarrow$}\quad\quad 已知$\lambda\beta\vdash M=N$，证$M=_\beta N$. 规则可以显然地对应到关系中.
+
+\begin{enumerate}
+    \item 公理$\alpha$对应于自反闭包.
+    \item 公理$\beta$对应于关系$beta$.
+    \item 规则$\sigma$对应于对称闭包.
+    \item 规则$\tau$对应于传递闭包.
+    \item 规则$\mu, \upsilon, \xi$分别对应于合拍关系的一个条件.
+\end{enumerate}
+    
+    \qed 
+\end{pf}

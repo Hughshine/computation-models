@@ -1,0 +1,14 @@
+\problem{试找出$A\in\Lambda^\circ$使$A$ $\lambda$-定义函数$f(m,n)=m+n$.}
+\begin{pf} \rm 
+$$
+\begin{aligned}
+\lceil m + n\rceil 
+&= \lambda f x. f^m(f^n x) \\
+&= \lambda f x. ((\lambda x. f^m x) (f^n x)) \\
+&= \lambda f x. ((\lceil m\rceil f) (\lceil n\rceil f x))  \\       
+\end{aligned}
+$$
+
+取$A=\lambda mnfx.((mf)(nfx))$.
+    \qed 
+\end{pf}

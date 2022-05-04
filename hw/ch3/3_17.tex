@@ -1,0 +1,14 @@
+\problem{试找出$F\in\Lambda^\circ$使$F$ $\lambda$-定义函数$f(m)=3m$.}
+\begin{pf} \rm \;
+$$
+    \begin{aligned}
+\lceil 3m\rceil 
+&= \lambda f x. f^{3m} x \\
+&= \lambda f x. ((\lambda fx. f^m x) (\lambda x. f^3 x)) \\
+&= \lambda f x. (\lceil m\rceil (\lceil 3\rceil f))  \\       
+\end{aligned}
+$$
+
+取$A=\lambda mfx. (m (\lceil 3\rceil f))$.
+    \qed 
+\end{pf}

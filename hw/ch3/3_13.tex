@@ -1,0 +1,14 @@
+\problem{证明若在系统$\lambda\beta$中加入下述公理 (A) $\lambda xy.x=\lambda xy.y$, 则对任何$M, N\in\Lambda, \lambda\beta+(A)\vdash M=N$.
+}
+\begin{pf} \rm 
+    根据合拍规则，
+    
+$$
+\begin{aligned}
+    \lambda\beta+(A)\vdash&\lambda xy.x = \lambda xy.y \\
+    \Rightarrow \lambda\beta+(A)\vdash&(\lambda xy.x) M N = (\lambda xy.y) M N \\
+    \Rightarrow \lambda\beta+(A)\vdash& M = N
+\end{aligned}
+$$
+    \qed 
+\end{pf}

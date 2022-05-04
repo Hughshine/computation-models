@@ -1,0 +1,9 @@
+\problem{证明命题3.14：设$R$是$\Lambda$上的二元关系，$M\in\mathrm{NF}_R$，则(1) 不存在$N\in\Lambda$使得$M\rightarrow_R N$; (2) $M\twoheadrightarrow_R N\Rightarrow M\equiv N$.
+}
+\begin{pf} \rm \;
+    \begin{enumerate}
+        \item 根据$R$范式定义，$M$不存在$R$可约子项，所以$M$必然无法进行一步规约.
+        \item 若$M\not\equiv N$，则必然存在一个长度大于$1$的$R$规约序列，这意味着$M$必然可以进行一步规约，与(1)矛盾.
+    \end{enumerate}
+    \qed 
+\end{pf}
