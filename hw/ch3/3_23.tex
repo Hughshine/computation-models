@@ -1,0 +1,24 @@
+\problem{$f(n)=\underbrace{n^{.^{.^{.^n}}}}_{n}$，试构造$F\in\Lambda^\circ$使$F\lceil n\rceil=\lceil f(n)\rceil$ 对$n\in\N^+$成立.}
+\begin{pf} \rm 
+   $$
+\begin{aligned}
+    % F \lceil 0 \rceil &= \lceil 0 \rceil\\ 
+    F \lceil n \rceil = \left\lceil \underbrace{n^{.^{.^{.^n}}}}_{n} \right\rceil = \underbrace{\lceil n \rceil\,\dots\lceil n \rceil}_{n}  \quad n>0 \\ 
+\end{aligned}
+   $$
+   令$\mathit{CO}_n = \lambda x.\underbrace{x\dots x}_{n}$，注意$\#x$为某常数$c$，
+   现尝试说明$f(n) = \#\mathit{CO}_n \in\PRF$：
+   
+    $$
+    \begin{aligned}
+        f(0) &= 0\\
+        f(n+1) &= [2, [\#x, \#\underbrace{x\dots x}_{n+1}]]\\
+        &= [2, [\#x, [\#x, [\#\underbrace{x\dots x}_{n}]]]]\\
+        &= [2, [\#x, [\#x, [(\pi_2)^2(f(n))]]]]
+    \end{aligned}
+    $$
+
+   显然$f\in\PRF$. 根据递归函数的$\lambda$-可定义性，有$F'\lceil n\rceil = \lceil \mathit{CO}_n \rceil$. 利用枚举子，有$E (F' \lceil n \rceil) \lceil n \rceil = CO_n \lceil n \rceil$，取$F = \lambda n. E (F' n) n$即可.
+   
+   \qed
+\end{pf}

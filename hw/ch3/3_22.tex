@@ -1,0 +1,29 @@
+\problem{证明引理3.39.
+}
+\begin{pf} \rm \;
+\begin{enumerate}
+    \item $\forall n\in\N. \mathrm{var}(n)=\#(v^{(n)}) = [0, n]$ 显然是递归函数.
+    \item $\forall M,N\in\Lambda. \mathrm{app}(\#M, \#N)=\#(M N) = [1, [\#M, \#N]]$ 显然是递归函数.
+    \item $\forall x\in\nabla, M\in\Lambda.\mathrm{abs}(\#x, \#M) = \#(\lambda x.M) = [2,[\#x, \#M]]$ 显然是递归函数.
+    \item 对于$\#\lceil n\rceil$，尝试找到它的递归式：
+    $$
+    \begin{aligned}
+        \#\lceil n+1 \rceil 
+        &= \#(\lambda fx.f^{n+1}x) \\
+        &= [2, [\#f, \#(\lambda x.f^{n+1} x)]] \\
+        &= [2, [\#f, [2, [\#x, \# f^{n+1} x]]]] \\
+        &= [2, [\#f, [2, [\#x, [1, [\#f, \#f^nx]]]]]] \\
+        &= [2, [\#f, [2, [\#x, [1, [\#f, (\pi_2)^4(\#\lceil n \rceil)]]]]]] \\
+    \end{aligned}
+    $$
+    取$h(z) = [2, [\#f, [2, [\#x, [1, [\#f, (\pi_2)^4(z)]]]]]]$，则令：
+    $$
+    \begin{aligned}
+        \mathrm{num}(0) &= \#\lceil 0 \rceil \\
+        \mathrm{num}(n+1) &= h(num(n)).
+    \end{aligned}
+    $$
+    显然$\mathrm{num}(n) = \#\lceil n \rceil$ 且 $\mathrm{num}\in\PRF$.
+\end{enumerate}
+    \qed
+\end{pf}
