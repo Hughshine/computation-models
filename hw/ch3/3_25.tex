@@ -1,0 +1,24 @@
+\problem{证明：存在$H_2\in\Lambda^\circ$，使得对于任意$F\in\Lambda$，有
+$$
+H_2\lceil n \rceil =_\beta F\lceil H_2 \lceil F \rceil\rceil.
+$$
+} 
+\newcommand{\app}{\mathrm{App}}
+\newcommand{\num}{\mathrm{Num}}
+
+\begin{pf} \rm 即求第二不动点组合子.
+
+    令$W\equiv \lambda xy. Ey\ (\app\ (\app\ x\ (\num\ x)) \ (\num\ y))$，$\Theta_2 = W\lceil W \rceil$. 其中$E$为枚举子.
+
+$$
+\begin{aligned}
+\Theta_2\lceil F\rceil 
+&= W  \lceil W\rceil \lceil F\rceil\\
+&= E \lceil F\rceil\ (\app\ (\app\ \lceil W\rceil\ (\num \lceil W\rceil))\ (\num\ \lceil F\rceil))\\
+&= F\ \app\ \lceil W \lceil W\rceil\rceil \lceil \lceil F\rceil\rceil\\
+&= F \lceil \Theta_2 \lceil F\rceil\rceil
+\end{aligned}    
+$$
+   
+   \qed
+\end{pf}
