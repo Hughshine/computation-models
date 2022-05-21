@@ -1,3 +1,6 @@
+\newcommand{\G}{\boxed{\mathrm{g}}}
+\newcommand{\predB}{\boxed{\mathrm{pred}}}
+
 \problem{设$f:\N\rightarrow\N$定义如下：
 \[
 \begin{aligned}
@@ -7,6 +10,15 @@
 \].
 证明，若$g$为Turing-可计算，则$f$为Turing-可计算.
 }
-\begin{pf} \rm\;  
-      \qed
+\begin{pf} \rm \;
+      
+    $M'(1, 1) = 1R2, M'(2, 0) = 0Lu_1, M'(2, 1) = 0Lu_2$, 用于条件分支.
+
+    $\Mpre(1, 1) = 1R1, \Mpre(1, 0) = 0R2, \Mpre(2, 0) = 1Ou$, 初始化结果$0$.
+
+    $\F = \Mpre \Mapsto \shiftlB \Mapsto \mathrm{repeat}\ M'[u_1:=e_1][u_2:=e_2] \cup (\Mok + e_1\downarrow v) \cup e_2 + (\shiftrB \Mapsto \G \Mapsto \compressB \Mapsto \shiftlB) $. 根据$x$应用函数$g$到中间结果. 有两个分支.
+
+    $\Mok = \eraseB$.
+
+    \qed
 \end{pf}

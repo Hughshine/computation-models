@@ -3,7 +3,24 @@
 \newcommand{\Gone}{\boxed{g_1}}
 \newcommand{\Gtwo}{\boxed{g_1}}
 \newcommand{\Gthree}{\boxed{g_1}}
-\problem{设$f(x) = f(g_1(x), g_2(x), g_3(x))$，试由$\Gone, \Gtwo, \Gthree$和$\H$构造机器$\F$.}
+\problem{设$f(x) = h(g_1(x), g_2(x), g_3(x))$，试由$\Gone, \Gtwo, \Gthree$和$\H$构造机器$\F$.}
 \begin{pf} \rm\;  
+    $\F = \copyB{1} 
+    \Mapsto\shiftrB
+    \Mapsto\Gone
+    \Mapsto\compressB
+    \Mapsto\shiftlB
+    \Mapsto\copyB{2}
+    \Mapsto\shiftrB
+    \Mapsto\Gtwo
+    \Mapsto\compressB
+    \Mapsto\shiftlB^2
+    \Mapsto\copyB{3}
+    \Mapsto\shiftrB^2
+    \Mapsto\Gthree
+    \Mapsto\compressB
+    \Mapsto\shiftlB^2
+    \Mapsto\H
+    $
       \qed
 \end{pf}

@@ -1,5 +1,31 @@
 \newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\sq}{\textrm{sq}}
+\newcommand{\sqB}{\boxed{\mathrm{sq}}}
+\newcommand{\mulB}{\boxed{\mathrm{mul}}}
+\newcommand{\subB}{\boxed{\mathrm{sub}}}
+\newcommand{\F}{\boxed{\mathrm{f}}}
+\newcommand{\SB}{\boxed{\mathrm{S}}}
+\newcommand{\Mok}{M_\textit{ok}}
+\newcommand{\Mcont}{M_\textit{cont}}
+\newcommand{\projB}[2]{\boxed{\mathrm{proj}_{#1}^{#2}}}
+
 \problem{构造机器计算函数$f(x) = \floor{\sqrt{x}}$.}
 \begin{pf} \rm\;  
-      \qed
+    $f(x) = \mu y.[S(x)\dotminus\sq(S(y))]$, 
+    $\sqB = \copyB{1}\Mapsto\mulB$. 类似书中定理5.16的构造，我们取$M=\Mpre \Mapsto \mathrm{repeat}\ M_1$.
+
+    其中，$\Mpre\sepline 01^x0\dots \twoheadrightarrow 01^x010\pointer{1}^x010\dots$ 如此构造：$\Mpre = M' \Mapsto \shiftlB \Mapsto \copyB{2}^2$. $M'(1, 1) = 1R1, M'(1, 0) = 0R2, M'(2, 0) = 1Ou$.
+
+    设$g(x, y) = S(x) - \sq(S(y))$，$M_1\sepline01^{x+1}01^{y+1}0\pointer{1}^{x+1}01^{y+1}\dots\twoheadrightarrow 01^{x+1}01^{y+1}0\pointer{1}^{g(x, y)+1}\dots$，取$M_1 = \copyB{2} \Mapsto \shiftrB \Mapsto \SB \Mapsto \shiftlB^2 \Mapsto \eraseB \Mapsto \copyB{2} \Mapsto \SB \Mapsto \sqB \Mapsto \shiftlB \Mapsto \subB \Mapsto \compressB$. 
+    
+    如下构造：$\F = \Mpre \Mapsto \mathrm{repeat}\ (M_1 \Mapsto \Mcheck)$. $\Mcheck$ 对结果是否为$0$进行检查，如不为$0$，则递增$y$进行下一轮计算，若为$0$，则整理结果，结束运行.
+
+    $\Mcheck = M'[u_1:=e_1][u_2:=e_2] \cup (\Mok+e_1) \cup (\Mcont+e_2) $, 
+    
+    $M'(1, 1) = 1R2, M'(2, 0) = 0Lu_1, M'(2, 1) = 0Lu_2$,
+
+    $\Mok = \shiftlB^2 \Mapsto \projB{3}{2} $,
+
+    $\Mcont = \shiftlB^2 \Mapsto \copyB{3}^2 \Mapsto \eraseB \Mapsto \compressB \Mapsto \shiftrB \Mapsto \compressB$.
+    \qed
 \end{pf}
