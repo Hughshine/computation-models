@@ -1,0 +1,23 @@
+\newcommand{\Mpre}{M_\textit{pre}}
+\newcommand{\Mcheck}{M_\textit{check}}
+
+\problem{构造机器计算函数$f(x) = 2^x$.}
+\begin{pf} \rm\;  
+
+    构造机器$\Mpre$使得，
+    $\Mpre\sepline 01^{m}0\dots\twoheadrightarrow u:0\pointer{1}^{m}0110\dots$，
+    
+    构造机器$M_1$使得，
+
+    $x > 0$时，$M_1\sepline \dots 01^{x+1}01^{y}\dots\twoheadrightarrow u: \dots0\pointer{1}^{x}01^{2y}\dots$，
+
+    $x = 0$时，$M_1\sepline \dots 0101^{y}\dots\twoheadrightarrow v: \dots0\pointer{1}^{y}0\dots$，
+
+    取$M$为$M' \Mapsto M_0 \Mapsto \Mpre \Mapsto \mathrm{repeat}\ M_1$，得到所求的机器. 其中$M'(1, 1) = 0Ru$，$M_0(0, 0) = 1Ov$. （$M'$计算$x-1$，即``翻倍次数''；$M_0$用于处理$x=0$的情况）.
+
+    $\Mpre$是简单的，略去列表. 
+
+    $M_1 = \Mcheck \Mapsto M' \Mapsto \shiftrB \Mapsto \copyB{1} \Mapsto \addB \Mapsto \shiftlB$. 其中，$\Mcheck(1, 1) = 1R2$，$\Mcheck(2, 1) = 1Lu, \Mcheck(2, 0) = 0L3$，$\Mcheck(3, 1) = 0R4$，$\Mcheck(4, 0) = 0R4, \Mcheck(4, 1) = 1Ov$.（$\Mcheck$仍然承担对循环变量的判断，并在确定循环终止时整理数据与带状态）.
+
+    \qed
+\end{pf}

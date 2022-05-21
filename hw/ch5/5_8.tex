@@ -1,0 +1,19 @@
+\newcommand{\F}{\boxed{f}}
+\newcommand{\Fone}{\boxed{f_1}}
+\newcommand{\Ftwo}{\boxed{f_2}}
+\problem{有$\Fone$计算$f_1(x)$，$\Ftwo$计算$f_2(x)$，试构造$\F$，计算$f(x) = f_1(x) + f_2(x)$.}
+\begin{pf} \rm\;  
+    $\F = \copyB{1}\Mapsto \shiftrB \Mapsto\Fone\Mapsto\compressB
+    \Mapsto\shiftlB
+    \Mapsto\copyB{2}
+    \Mapsto\shiftrB
+    \Mapsto\Ftwo
+    \Mapsto\compressB
+    \Mapsto\shiftlB^2
+    \Mapsto\eraseB
+    \Mapsto\addB.
+    \\$
+    
+    （注：前面实现的$\copyB{1}$不会移动指针到下一项（复制项）；$\copyB{n}, n>1$按书中实现，会移动指针到下一项）.
+    \qed
+\end{pf}

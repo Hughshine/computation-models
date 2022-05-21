@@ -1,0 +1,18 @@
+\problem{构造机器计算函数$f(x, y) = x * y$.}
+\begin{pf} \rm \;
+
+    构造机器$M_\textit{pre}$使得，$M_\textit{pre}\sepline 01^{x+1}01^{y+1}\twoheadrightarrow 00\pointer{1}^{x+1}01^{y+1}01^{y+1}\dots$
+    
+    构造机器$M_1$使得，\\$m>1$时，有$M_1\sepline \dots01^{m+1}0^{r}1^{kn+1}01^{n+1}\dots\twoheadrightarrow u:\dots0\pointer{1}^{m}0^{r'}1^{kn+n+1}01^{n+1}\dots$，\\$m=1$时，有$M_1\sepline \dots010^{r}1^{kn+1}01^{n+1}\dots\twoheadrightarrow v:\dots0\pointer{1}^{kn+1}0\dots$
+    
+    那么，$M=M_\textit{pre}\Mapsto\mathrm{repeat}\ M_1$则计算了函数$f$.
+
+    $M_\textit{pre} = \shiftrB \Mapsto \copyB{1} \Mapsto \shiftlB$.
+
+    $M_1 = M_\textit{check} \Mapsto M' \Mapsto \shiftrB \Mapsto \shiftrB \Mapsto \copyB{1} \Mapsto \shiftlB \Mapsto \addB \Mapsto \shiftlB $，其中$M'(1, 1) = 0Ru$；$M_\textit{check}(1, 1) = 1R2$，$M_\textit{check}(2, 1) = 1Lu$，$M_\textit{check}(2, 0) = 0L3$，$M_\textit{check}(3, 1) = 0R4$，$M_\textit{check}(4, 0) = 0R4$，$M_\textit{check}(4, 1) = 1R5$，$M_\textit{check}(5, 1) = 1R5, M_\textit{check}(5, 0) = 0R6$，$M_\textit{check}(6, 0) = 0R6, M_\textit{check}(6, 1) = 0R7$，$M_\textit{check}(7, 1) = 0R7, M_\textit{check}(7, 0) = 0L8$，
+    $M_\textit{check}(8, 0) = 0L8, M_\textit{check}(8, 1) = 1L9$，
+    $M_\textit{check}(9, 1) = 1L9, M_\textit{check}(9, 0) = 0Rv$.
+
+    （注：$M_1$用于递减迭代次数；$M_\textit{check}$用于单次循环开始前判断后续迭代次数是否为0，是则进行结果的整理并返回）.
+    \qed
+\end{pf}
