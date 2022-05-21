@@ -2,13 +2,13 @@
 \begin{pf} \rm \;
 $$
     \begin{aligned}
-\lceil 3m\rceil 
+\ulcorner 3m\urcorner 
 &= \lambda f x. f^{3m} x \\
 &= \lambda f x. ((\lambda fx. f^m x) (\lambda x. f^3 x)) \\
-&= \lambda f x. (\lceil m\rceil (\lceil 3\rceil f))  \\       
+&= \lambda f x. (\ulcorner m\urcorner (\ulcorner 3\urcorner f))  \\       
 \end{aligned}
 $$
 
-取$A=\lambda mfx. (m (\lceil 3\rceil f))$.
+取$A=\lambda mfx. (m (\ulcorner 3\urcorner f))$.
     \qed 
 \end{pf}

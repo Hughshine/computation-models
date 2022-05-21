@@ -1,15 +1,15 @@
 \problem{
 设$\mathrm{Exp}\equiv\lambda xy.yz$，\\证明对于任意$n\in\N, m\in\N^*$，
-$\mathrm{Exp} \lceil n \rceil \lceil m \rceil = \lceil n^m \rceil$
+$\mathrm{Exp} \ulcorner n \urcorner \ulcorner m \urcorner = \ulcorner n^m \urcorner$
 }\label{3.19}
 \begin{pf} \rm \;
 $$
 \begin{aligned}
-    \lceil m \rceil \lceil n \rceil
+    \ulcorner m \urcorner \ulcorner n \urcorner
     &= (\lambda fx. f^m x)(\lambda f x.f^n x)\\
     &= (\lambda x. (\lambda fx. f^n x)^m x) \\
     &= (\lambda x. (\lambda fx. f^{(n^m)} x) \\
-    &= \lceil n^m \rceil
+    &= \ulcorner n^m \urcorner
 \end{aligned}$$
     \qed 
 \end{pf}

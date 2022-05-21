@@ -1,14 +1,14 @@
 \problem{令$D\equiv\lambda xyz.z(Ky)x$，证明：对于任意的$X, Y\in\Lambda$，
 $$
 \begin{aligned}
-    DXY\lceil 0 \rceil &= X, \\
-    DXY\lceil n+1 \rceil &= Y. 
+    DXY\ulcorner 0 \urcorner &= X, \\
+    DXY\ulcorner n+1 \urcorner &= Y. 
 \end{aligned}
 $$
-这里$K\equiv \lambda xy.x$，$\lceil n \rceil \equiv \lambda fx.f^n x$.
+这里$K\equiv \lambda xy.x$，$\ulcorner n \urcorner \equiv \lambda fx.f^n x$.
 }
 \begin{pf} \rm \;
-    对于一般的$m$，$DXY\lceil m\rceil =\lceil m\rceil (\lambda y.Y) X $.
+    对于一般的$m$，$DXY\ulcorner m\urcorner =\ulcorner m\urcorner (\lambda y.Y) X $.
     \begin{enumerate}
         \item $m=0$时，$(\lambda f x.x) (\lambda y.Y) x = X$.
         \item $m>0$时（即$\exists n, m=n+1$），$(\lambda fx.f^{m} x)(\lambda y.Y) x = (\lambda y.Y)^m x = Y$. 

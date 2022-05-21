@@ -2,10 +2,10 @@
 \begin{pf} \rm 
 $$
 \begin{aligned}
-\lceil m + n\rceil 
+\ulcorner m + n\urcorner 
 &= \lambda f x. f^m(f^n x) \\
 &= \lambda f x. ((\lambda x. f^m x) (f^n x)) \\
-&= \lambda f x. ((\lceil m\rceil f) (\lceil n\rceil f x))  \\       
+&= \lambda f x. ((\ulcorner m\urcorner f) (\ulcorner n\urcorner f x))  \\       
 \end{aligned}
 $$
 

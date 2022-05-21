@@ -16,13 +16,17 @@
 \setitemize[1]{itemsep=3pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
 \setdescription{itemsep=3pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
 \usepackage{sectsty}
-
+\usepackage{makecell}
 
 
 %%%%%%%%%%%%%%%%%%%%%%% TOC defines %%%%%%%%%%%%%%%%%%%%%%%
 % General terms
 \newcommand{\problem}{\subsection}
 \newtheorem*{pf}{Proof}
+
+\newcommand{\otherwise}{\mathrm{otherwise.}}
+\newcommand{\pred}{\mathrm{pred}}
+\newcommand{\sepline}{\ | \ }
 
 % Recursive functions
 \newcommand{\IF}{\mathcal{IF}}
@@ -46,14 +50,6 @@
 \newcommand{\neqt}{\mathrm{neq}}
 \newcommand{\andt}{\mathrm{and}}
 
-% \newcommand{\dotminus}{\mathbin{\ooalign{\hss\raise1ex\hbox{.}\hss\cr
-%   \mathsurround=0pt$-$}}}
-% \makeatletter
-% \newcommand{\dotminus}{\mathbin{\text{\@dotminus}}}
-% \newcommand{\@dotminus}{%
-%   \ooalign{\hidewidth\raise1ex\hbox{.}\hidewidth\cr$\m@th-$\cr}%
-% }
-% \makeatother
 \DeclareRobustCommand{\dotminus}{\mathbin{\ooalign{\hss\raise1ex\hbox{.}\hss\cr
 \mathsurround=0pt$-$}}}
 \DeclareRobustCommand{\dotdotminus}{\mathbin{\ooalign{\hss\raise1ex\hbox{..}\hss\cr
@@ -69,9 +65,6 @@
 \newcommand{\A}{\mathbf{A}}
 \newcommand{\cp}{\mathbf{copy}}
 \newcommand{\mv}{\mathbf{move}}
-\newcommand{\otherwise}{\mathrm{otherwise.}}
-
-\newcommand{\pred}{\mathrm{pred}}
 
 % Lambda calculus
 \newcommand{\bnf}{\beta\textrm{-nf}}
@@ -85,3 +78,8 @@
 \newcommand{\Lambdaclosed}{\Lambda^\circ}
 \newcommand{\churchnumber}[1]{\ulcorner{#1}\urcorner}
 \newcommand{\NF}{\mathrm{NF}}
+
+\newcommand{\eraseB}{\boxed{\textrm{erase}}}
+\newcommand{\copyB}[1]{\boxed{\textrm{copy}_#1}}
+\newcommand{\pointer}[1]{%
+  \underset{\substack{\uparrow}}{#1}}

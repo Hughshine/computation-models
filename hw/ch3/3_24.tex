@@ -1,34 +1,34 @@
 \problem{构造$H\in\Lambda^\circ$，使得对于任意$n\in\N, x_1,\dots,x_n\in\Lambda$，有
 $$
-H\lceil n\rceil x_1\dots x_n =_\beta [x_1, \dots, x_n].
+H\ulcorner n\urcorner x_1\dots x_n =_\beta [x_1, \dots, x_n].
 $$} 
 \begin{pf} \rm 
    \begin{enumerate}
-       \item $l(n) = \#L_n\in\GRF$. 如下，$h\in\PRF$，所以$l\in\PRF$.
+       \item $l(n) = \sharp L_n\in\GRF$. 如下，$h\in\PRF$，所以$l\in\PRF$.
     $$
     \begin{aligned}
-        l(n) &= [2, [\#3, \#zx_1\dots x_n]] 
+        l(n) &= [2, [\sharp 3, \sharp zx_1\dots x_n]] 
         &= [2, [1, h(n)]]\\
     \end{aligned}
     $$
     $$
     \begin{aligned}
-        h(n) &= \#zx_1\dots x_n \\
-        h(1) &= \# zx_1 = [1,[1,\#x_1]] = [1, [1, [0,1]]] \\   
-        h(n+1) &= [2, [1, h(n), \#x_{n+1}]] = [2, [h(n), [0, n+1]]]\\
+        h(n) &= \sharp zx_1\dots x_n \\
+        h(1) &= \sharp  zx_1 = [1,[1,\sharp x_1]] = [1, [1, [0,1]]] \\   
+        h(n+1) &= [2, [1, h(n), \sharp x_{n+1}]] = [2, [h(n), [0, n+1]]]\\
     \end{aligned}
     $$
-    \item $g(n) = \#M_n = \lambda x_1\dots x_n. [x_1, \dots, x_n]\in\PRF$.
+    \item $g(n) = \sharp M_n = \lambda x_1\dots x_n. [x_1, \dots, x_n]\in\PRF$.
     $$
     \begin{aligned}
-        g(n) &= [2, [\#x_1, [2, \dots [2, [\#x_n, l(n)]\dots]]]]\\
+        g(n) &= [2, [\sharp x_1, [2, \dots [2, [\sharp x_n, l(n)]\dots]]]]\\
         \mathbf{let}\; &f(i, y) = [2, [[0, i, y]]]\in \PRF\\
         g(n) &= f(1, f(2, \dots f(n-1, f(n, l(n))\dots)))\in\PRF.
     \end{aligned}
     $$
     \item 有$G$ $\lambda$-定义 $g$. 取$H\equiv \lambda z.E(Gz)$，得
     
-    $$H\lceil n\rceil x_1\dots x_n =_\beta \lambda z. E(Gz) x_1\dots x_n =_\beta [x_1, \dots, x_n].$$
+    $$H\ulcorner n\urcorner x_1\dots x_n =_\beta \lambda z. E(Gz) x_1\dots x_n =_\beta [x_1, \dots, x_n].$$
    \end{enumerate}
    \qed
 \end{pf}

@@ -1,0 +1,111 @@
+\newcommand{\cbit}{\boxed{\mathrm{cbit}}}
+
+\problem{构造机器 \copyB{1} 使得 $\copyB{1}\sepline 01^x0\dots\twoheadrightarrow01^x01^x0\dots$.}
+\begin{pf} \rm 
+    构造机器$\cbit$使得对于$m, n, k > 0$，有$\cbit\sepline01^m0^n01^k\dots\twoheadrightarrow u: 0 \pointer{1}^{m+1} 0^{n-1}01^{k+1}\dots$； 对于$m, k > 0, n = 0$，有$\cbit\sepline01^m01^k\dots\twoheadrightarrow v: 0 \pointer{1}^{m} 0 1^{k}\dots$ 其状态转移表设计如下. 
+    \begin{center}
+        \footnotesize
+        \begin{tabular}{ |c|c|c|c| } 
+        \hline
+          & 0 & 1 & 解释 \\ 
+         \hline
+         1 & $1R2$ & $1R1$ & \makecell{
+             $1:0\pointer{1}^m0^n01^k\leadsto$\\
+             $1:01^m \pointer{0} 0^n 1^k\dots\leadsto$\\
+             $2: 01^{m+1} \pointer{0}^n 1^k\dots $} 
+        \\ \hline
+         2 & $0O3$ & $1L8$ & \makecell{
+            $2: 01^{m+1} \pointer{0}^n 1^k\dots \leadsto$ \\ 
+            $3: 01^{m+1} \pointer{0}^n 1^k\dots $ \\ 
+            或 \\
+            $2: 01^{m+1} \pointer{1}^k\dots \leadsto$ \\ 
+            $8: 01^{m} \pointer{1} 1^k\dots $
+        } 
+        \\  \hline
+        3 & $0R3$ & $1R4$ & \makecell{
+            $3: 01^{m+1} \pointer{0}^n 1^k\dots \leadsto$ \\
+            $3: 01^{m+1} 0^n \pointer{1}^k\dots \leadsto$ \\ 
+            $4: 01^{m+1} 0^n 1\pointer{1}^{k-1}\dots$ 
+        } 
+        \\  \hline
+        4 & $1L5$ & $1R4$ & \makecell{
+            $4: 01^{m+1} 0^n 1\pointer{1}^{k-1}\dots\leadsto$\\ 
+            $4: 01^{m+1} 0^n 1^k\pointer{0}\dots\leadsto$\\ 
+            $5: 01^{m+1} 0^n 1^{k-1}\pointer{1}1\dots$\\ 
+        } 
+        \\  \hline
+        5 & $0L6$ & $1L5$ & \makecell{
+            $5: 01^{m+1} 0^n 1^{k-1}\pointer{1}1\dots\leadsto$\\ 
+            $5: 01^{m+1} 0^{n-1}\pointer{0} 1^{k+1}\dots\leadsto$\\
+            $6: 01^{m+1} 0^{n-2}\pointer{0}0 1^{k+1}\dots$\\
+        } 
+        \\  \hline
+        6 & $0L6$ & $1L7$ & \makecell{
+            $6: 01^{m+1} 0^{n-2}\pointer{0}0 1^{k+1}\dots\leadsto$\\ 
+            $6: 01^m \pointer{1} 0^n 1^{k+1}\dots\leadsto$\\
+            $7: 01^{m-1} \pointer{1} 1 0^n 1^{k+1}\dots$
+        } 
+        \\  \hline
+        7 & $0Ru$ & $1L7$ & \makecell{
+            $7: 01^{m-1} \pointer{1} 1 0^n 1^{k+1}\dots\leadsto$\\ 
+            $7: \pointer{0}1^{m+1} 0^n 1^{k+1}\dots\leadsto$\\
+            $u: 0\pointer{1}^{m+1} 0^n 1^{k+1}\dots$
+        } 
+        \\  \hline
+        8 & & $0L9$ & \makecell{
+            $8: 01^{m} \pointer{1} 1^k\dots\leadsto$\\ 
+            $9: 01^{m-1} \pointer{1} 0 1^k\dots$\\
+        } 
+        \\  \hline
+        9 & $0Rv$ & $1L9$ & \makecell{
+            $9: 01^{m-1} \pointer{1} 0 1^k\dots\leadsto$\\ 
+            $9: \pointer{0}1^{m} 0 1^k\dots\leadsto$\\
+            $u: 0\pointer{1}^{m} 0 1^{k}\dots$
+        } 
+        \\  \hline
+        \end{tabular}
+    \end{center}
+
+    构造机器$M_1$使得$M_1\sepline 01^{m}\dots \twoheadrightarrow 0\pointer{1}0^{m-1}01\dots$. 
+    \begin{center}
+        \footnotesize
+        \begin{tabular}{ |c|c|c|c| } 
+        \hline
+          & 0 & 1 & 解释 \\ 
+        \hline
+        1 & $0R2$ & $1R1$ & \makecell{
+            $1:0\pointer{1}^{m}\dots\leadsto$\\
+            $1:01^m \pointer{0} \dots\leadsto$\\
+            $2: 01^{m} \pointer{0} \dots $} 
+        \\  \hline % seq step 需要占一个状态的. 
+        2 & $0R3$ &  & \makecell{ 
+            $2: 01^{m} \pointer{0} \dots\leadsto$\\
+            $3: 01^{m} 0 \pointer{0} \dots$\\
+        }
+        \\  \hline
+        3 & $1L4$ &  & \makecell{ 
+            $3: 01^{m} 0 \pointer{0} \dots\leadsto$\\
+            $4: 01^{m} \pointer{0} 1 \dots$\\
+        }
+        \\  \hline
+        4 & $0L5$ &  & \makecell{ 
+            $4: 01^{m} \pointer{0} 1 \dots\leadsto$\\
+            $5: 01^{m-1} \pointer{1} 0 1 \dots$\\
+        }
+        \\  \hline
+        5 & $0R6$ & $0L5$ & \makecell{ 
+            $5: 01^{m-1} \pointer{1} 0 1 \dots\leadsto$\\
+            $5: \pointer{0}0^{m} \pointer{0} 1 \dots\leadsto$\\
+            $6: 0\pointer{0}0^{m-1}01\dots$
+        }
+        \\  \hline
+        6 & $1Ou$ & & \makecell{ 
+            $6: 0\pointer{0}0^{m-1}01\dots\leadsto$\\
+            $u: 0\pointer{1}0^{m-1}01\dots$
+        }
+        \\  \hline
+            \end{tabular}
+        \end{center}
+        则，机器$\copyB{1} = M_1 \Mapsto \mathrm{repeat}\ \cbit $.
+    \qed
+\end{pf}

@@ -2,28 +2,28 @@
 }
 \begin{pf} \rm \;
 \begin{enumerate}
-    \item $\forall n\in\N. \mathrm{var}(n)=\#(v^{(n)}) = [0, n]$ 显然是递归函数.
-    \item $\forall M,N\in\Lambda. \mathrm{app}(\#M, \#N)=\#(M N) = [1, [\#M, \#N]]$ 显然是递归函数.
-    \item $\forall x\in\nabla, M\in\Lambda.\mathrm{abs}(\#x, \#M) = \#(\lambda x.M) = [2,[\#x, \#M]]$ 显然是递归函数.
-    \item 对于$\#\lceil n\rceil$，尝试找到它的递归式：
+    \item $\forall n\in\N. \mathrm{var}(n)=\sharp (v^{(n)}) = [0, n]$ 显然是递归函数.
+    \item $\forall M,N\in\Lambda. \mathrm{app}(\sharp M, \sharp N)=\sharp (M N) = [1, [\sharp M, \sharp N]]$ 显然是递归函数.
+    \item $\forall x\in\nabla, M\in\Lambda.\mathrm{abs}(\sharp x, \sharp M) = \sharp (\lambda x.M) = [2,[\sharp x, \sharp M]]$ 显然是递归函数.
+    \item 对于$\sharp \ulcorner n\urcorner$，尝试找到它的递归式：
     $$
     \begin{aligned}
-        \#\lceil n+1 \rceil 
-        &= \#(\lambda fx.f^{n+1}x) \\
-        &= [2, [\#f, \#(\lambda x.f^{n+1} x)]] \\
-        &= [2, [\#f, [2, [\#x, \# f^{n+1} x]]]] \\
-        &= [2, [\#f, [2, [\#x, [1, [\#f, \#f^nx]]]]]] \\
-        &= [2, [\#f, [2, [\#x, [1, [\#f, (\pi_2)^4(\#\lceil n \rceil)]]]]]] \\
+        \sharp \ulcorner n+1 \urcorner 
+        &= \sharp (\lambda fx.f^{n+1}x) \\
+        &= [2, [\sharp f, \sharp (\lambda x.f^{n+1} x)]] \\
+        &= [2, [\sharp f, [2, [\sharp x, \sharp  f^{n+1} x]]]] \\
+        &= [2, [\sharp f, [2, [\sharp x, [1, [\sharp f, \sharp f^nx]]]]]] \\
+        &= [2, [\sharp f, [2, [\sharp x, [1, [\sharp f, (\pi_2)^4(\sharp \ulcorner n \urcorner)]]]]]] \\
     \end{aligned}
     $$
-    取$h(z) = [2, [\#f, [2, [\#x, [1, [\#f, (\pi_2)^4(z)]]]]]]$，则令：
+    取$h(z) = [2, [\sharp f, [2, [\sharp x, [1, [\sharp f, (\pi_2)^4(z)]]]]]]$，则令：
     $$
     \begin{aligned}
-        \mathrm{num}(0) &= \#\lceil 0 \rceil \\
+        \mathrm{num}(0) &= \sharp \ulcorner 0 \urcorner \\
         \mathrm{num}(n+1) &= h(num(n)).
     \end{aligned}
     $$
-    显然$\mathrm{num}(n) = \#\lceil n \rceil$ 且 $\mathrm{num}\in\PRF$.
+    显然$\mathrm{num}(n) = \sharp \ulcorner n \urcorner$ 且 $\mathrm{num}\in\PRF$.
 \end{enumerate}
     \qed
 \end{pf}
