@@ -1,5 +1,19 @@
+\newcommand{\codel}{\textit{codeL}}
 \problem{令$S=\{\sharp M : M \textrm{为Turing-机}\}$，证明$S$是Turing-可计算的.}
 \begin{pf} \rm \;
-
+    \[
+    \begin{array}{l}
+        \T{已知} n \in S \Leftrightarrow \exists M, n = \sharp M, \\
+        \T{设$k(n) = (\max\,x\le n.\, p_x\sepline n) + 1$，}\\
+        \T{则M有$1+k(n)$行（写作$r_0, \dots, r_{k(n)}$）,$n = \L \sharp r_1, \dots, \sharp r_{k(n)}\R$.}\\
+        \T{对于$i\le k(n)$，可用$\ep_i(n)$取机器第$i$行编码，}\\
+        \T{此时构造函数$\codel(m, n)$对行编码合法性进行检查，其中$m$为行编码，$n$为行数.}\\
+        \codel(m, n) = (\ep_0(m)\le k(n) \wedge \ep_1(m)\in\{0, 1\} \wedge \ep_2(m)\in\{\sharp L, \sharp O, \sharp R\} \\ \qquad\qquad \wedge\ \ep_4(m) \in \{0, 1\} \wedge \ep_5(m) \in \{ \sharp L, \sharp O, \sharp R\}) \\ 
+        \qquad \wedge  (\ep_0(m)\le k(n) \wedge \ep_1(m)\in\{0, 1\} \wedge \ep_2(m)\in\{2,3,4\} \\ \qquad\qquad \wedge\ \ep_4(m) = \ep_5(m) = \ep_6(m) = 4)\\
+        \qquad \wedge (\ep_0(m)\le k(n)\wedge \ep_1(m) = \ep_2(m) = \ep_3(m) = 2 \wedge \ep_4(m) \in \{0, 1\} \\\qquad\qquad \wedge\ \ep_5(m) \in \{2, 3, 4\})\\
+        \T{可知，$n\in S\Leftrightarrow \forall i\le k(n), \codel(\ep_i(n), n)$，} \\
+        \T{这是个初等谓词，所以属于$\GRF$，所以$S$可判定.}
+    \end{array}
+    \]
     \qed
 \end{pf}

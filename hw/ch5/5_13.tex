@@ -1,5 +1,14 @@
 \problem{证明 $S = \{a_1, a_2, \dots, a_k\}$ 是Turing-可计算的.}
 \begin{pf} \rm \;
+    令$a_1, \dots, a_k$为升序排列，$a_k = n$. 则构造行数为$n+8$的图灵机. 
+
+    \begin{enumerate}
+        \item 越过第一个1：$M(1, 1) = 0R2$, \\
+        \item 与每个集合内的数进行比较，相等则结束（输出0），否则递增继续尝试，$ \forall j\le n, j\in S \Rightarrow (M(1+j, 0) = 0Lu_1) \wedge (M(1+j, 1) = 1R(1+j+1)), $ \\
+        \item 与非集合内的数进行比较，相等则结束（输出1），否则递增继续尝试，$\forall j\le n, j\not\in S\Rightarrow (M(1+j, 0) = 0Lu_2) \wedge (M(1+j, 1) = 1R(1+j)), $\\
+        \item 整理结果，输出0：$M(u_1, 1) = 0L1, M(u_1, 0) = 0R(u_1+1), M(u_1+1, 1) = 1R(u_1 + 2)$，\\
+        \item 整理结果，输出1：$M(u_2, 1) = 0L1, M(u_2, 0) = 0R(u_2+1), M(u_2+1, 1) = 1R(u_2 + 2), M(u_2+2, 1)=1R(u_2+3)$.\\
+    \end{enumerate}
 
     \qed
 \end{pf}

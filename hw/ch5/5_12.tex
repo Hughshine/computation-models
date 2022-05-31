@@ -1,5 +1,6 @@
 \problem{证明 $\mathrm{Even} = \{ 2x: x\in\N\}$ 是Turing-可计算的.}
 \begin{pf} \rm \;
-
+    直接构造图灵机$M$：
+    $M(1, 1) = 0R2, M(2, 1) = 0R3, M(3, 1) = 0R2, M(2, 0) = 1Ou, M(3, 0) = 1R3, M(4, 0) = 1Ru$.
     \qed
 \end{pf}
